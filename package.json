@@ -5,17 +5,29 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel src/*.html --cache-dir /tmp/parcel-cache",
+    "watch": "parcel watch src/*.html",
+    "build": "parcel build",
+    "production": "parcel build src/*.html --cache-dir /tmp/parcel-cache"
   },
   "keywords": [],
   "author": "Stepan Krapivin <coder@xevin.ru>",
   "license": "MIT",
   "devDependencies": {
+    "@vue/component-compiler-utils": "^3.0.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
-    "eslint": "^5.16.0",
+    "eslint": "^5.15.2",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-vue": "^4.7.1",
+    "eslint-import-resolver-parcel": "^1.9.0",
+    "eslint-plugin-vue": "^5.2.3",
     "parcel-bundler": "^1.12.3",
-    "sass": "^1.22.0"
+    "sass": "^1.22.0",
+    "vue-custom-scrollbar": "^1.0.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "vue": "^2.6.10",
+    "vue-custom-scrollbar": "^1.0.0",
+    "vue-hot-reload-api": "^2.3.3"
   }
 }

@@ -11,4 +11,7 @@ module.exports = {
   "plugins": [
     'vue'
   ],
+  "rules": {
+    "import/no-unresolved": 0
+  },
 };

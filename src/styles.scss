@@ -1,0 +1,119 @@
+html,body {
+  padding: 0;
+  margin: 0;
+  font-family: "Noto Sans", "PT Sans", sans-serif;
+}
+
+$color1: #ffffff; // white
+$color2: #009E94; // persian green
+$color3: #000000; // black
+$color4: #F4A30A; // orange
+$color5: #AF0445; // french wine (red)
+
+body {
+  background-color: $color1;
+}
+
+@mixin container {
+  max-width: 980px;
+  width: 80%;
+  margin: 0 auto;
+
+  @media (max-width: 980px) {
+    width: 100%;
+  }
+}
+
+@mixin hideColumns {
+  @media (max-width: 800px) {
+    &:nth-child(4) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 980px) {
+    &:nth-child(3) {
+      display: none;
+    }
+  }
+}
+
+$header-height: 3em;
+$header-min-height: 80px;
+
+header {
+  color: $color1;
+  box-sizing: border-box;
+  width: 100%;
+
+  .title {
+    font-size: 2em;
+    margin-top: 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    @include container;
+    background: linear-gradient(to right, $color2, lighten($color2, 10%));
+    height: 10vh;
+    min-height: $header-min-height;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.content {
+  .container {
+    @include container;
+  }
+}
+
+.coin-table {
+  width: 100%;
+  position: relative;
+  border-collapse: collapse;
+
+  &__wrap-scroll {
+    max-height: 90vh;
+    overflow-y: scroll;
+
+    @media (max-height: 800px) {
+      max-height: calc(100vh - #{$header-min-height});
+    }
+  }
+
+  &__th {
+    background-color: $color4;
+    color: white;
+    position: sticky;
+    top: 0;
+    font-weight: bold;
+    text-align: left;
+    padding: .5em;
+
+    @include hideColumns;
+  }
+
+  td {
+    padding: .5em;
+
+    @include hideColumns;
+
+  }
+
+  tr {
+    &:nth-child(even) {
+      td {
+        color: #333;
+      }
+    }
+
+    &:nth-child(odd) {
+      td {
+        background-color: #efefef;
+      }
+    }
+  }
+}
