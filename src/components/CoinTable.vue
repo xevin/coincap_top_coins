@@ -14,6 +14,7 @@
         <tr
           v-for="coin in coinList"
           :key="coin.id"
+          :ref="coin.id"
         >
           <td>{{ coin.name }}</td>
           <td>${{ parseFloat(coin.priceUsd).toFixed(2) }}</td>
@@ -50,6 +51,22 @@ export default {
           (a, b) => parseFloat(a.marketCapUsd) < parseFloat(b.marketCapUsd) || -1,
         );
         this.$set(this, 'coinList', coins.slice(0, COIN_LIMIT));
+        const coinIds = this.coinList.map(coin => coin.id);
+
+        let tradeWs = new WebSocket(`wss://ws.coincap.io/prices?assets=${coinIds}`);
+
+        tradeWs.onmessage = (msg) => {
+          let data = JSON.parse(msg.data);
+          let keys = Object.keys(data);
+
+          this.coinList.forEach((el, idx) => {
+            if (keys.indexOf(el.id) >= 0) {
+              // this.$refs[el.id][0].classList.add('update');
+              el.priceUsd = data[el.id];
+              this.$set(this.coinList, idx, el);
+            }
+          });
+        }
       });
   },
 };
