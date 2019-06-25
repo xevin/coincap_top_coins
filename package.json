@@ -2,13 +2,14 @@
   "name": "coincap_test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "private": true,
   "scripts": {
-    "dev": "parcel src/*.html --cache-dir /tmp/parcel-cache",
-    "watch": "parcel watch src/*.html",
+    "start": "parcel index.html --open",
+    "dev": "parcel index.html --cache-dir /tmp/parcel-cache",
+    "watch": "parcel watch index.html",
     "build": "parcel build",
-    "production": "parcel build src/*.html --cache-dir /tmp/parcel-cache"
+    "production": "parcel build index.html --cache-dir /tmp/parcel-cache"
   },
   "keywords": [],
   "author": "Stepan Krapivin <coder@xevin.ru>",
