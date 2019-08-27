@@ -7,6 +7,11 @@
 * вывести полученные данные в таблице
 * обновлять в реальном времени курс криптовалют по Websocket API с *coincap.io*
 
+## Технологии
+* Vue.js
+* WebSocket
+* parcel
+
 ## Документация
 
 https://docs.coincap.io/?version=latest
