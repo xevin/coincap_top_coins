@@ -1,3 +1,12 @@
-# Show top 15 coins from coincap.io REST API
+# Отображение и обновление курсов криптовалют
 
 [demo](https://po2vd.codesandbox.io/)
+
+## Задача
+* получение данных о 15 криптовалютах с наибольшей рыночной капитализацией по API с *coincap.io*
+* вывести полученные данные в таблице
+* обновлять в реальном времени курс криптовалют по Websocket API с *coincap.io*
+
+## Документация
+
+https://docs.coincap.io/?version=latest
